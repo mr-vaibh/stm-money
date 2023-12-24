@@ -1,0 +1,38 @@
+body {
+    zoom: 100%;
+}
+
+#box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.circle {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    /* background-color: #ccc; */
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100px;
+    height: 100px; */
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+}
+
+#control-box {
+    float: right;
+    height: 130px;
+    margin-left: 50px;
+}
