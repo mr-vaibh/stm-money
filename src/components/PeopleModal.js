@@ -33,7 +33,9 @@ export default function PeopleModal({ people, eachAmount, modalData, setModalDat
 
     const handlePay = () => {
         if (parseFloat(paidValue)) {
-            let newModalDataObject = Object.create(modalData);
+            console.log(modalData)
+            let newModalDataObject = { ...modalData };
+            console.log(newModalDataObject)
             newModalDataObject.paid += parseFloat(paidValue);
 
             setModalData(newModalDataObject);
@@ -90,13 +92,13 @@ export default function PeopleModal({ people, eachAmount, modalData, setModalDat
                     </FormControl>
 
                     <Typography id="modal-modal-title" variant="h6">
-                        Paid: <span style={{'color': '#eb9800', ...styleSpan}}>&#8377; {modalData?.paid}</span>
+                        Paid: <span style={{ 'color': '#eb9800', ...styleSpan }}>&#8377; {modalData?.paid}</span>
                     </Typography>
                     {!!give && <Typography id="modal-modal-title" variant="h6">
-                        To Give: <span style={{'color': '#d40000', ...styleSpan}}>- &#8377; {give.toFixed(2)}</span> (<span>{givePerson.name}</span>)
+                        To Give: <span style={{ 'color': '#d40000', ...styleSpan }}>- &#8377; {give.toFixed(2)}</span> (<span>{givePerson.name}</span>)
                     </Typography>}
                     {!!recieve && <Typography id="modal-modal-title" variant="h6">
-                        To Recieve: <span style={{'color': '#008000', ...styleSpan}}>+ &#8377; {recieve.toFixed(2)}</span>
+                        To Recieve: <span style={{ 'color': '#008000', ...styleSpan }}>+ &#8377; {recieve.toFixed(2)}</span>
                         &nbsp;({recievePersonArray.map(eachPerson =>
                             <span key={eachPerson.id}>
                                 {eachPerson}{recievePersonArray.at(-1) !== eachPerson && ', '}

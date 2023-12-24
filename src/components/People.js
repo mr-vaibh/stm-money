@@ -8,6 +8,7 @@ export default function People({ people, setPeople, eachAmount }) {
     const handleOpen = (id) => {
         const item = people.filter(item => item.id === parseInt(id) + 1)[0];
 
+        console.log(item);
         setModalData(item);
         setOpen(true);
     };
@@ -37,8 +38,6 @@ export default function People({ people, setPeople, eachAmount }) {
             // const radius = 200;
             const x = -Math.sin(i * angle) * radius + containerSize / 2;
             const y = -Math.cos(i * angle) * radius + containerSize / 2;
-
-            console.log(x);
 
             // if (i === 0) {
             //     const sourceRect = item.getBoundingClientRect();
@@ -73,6 +72,8 @@ export default function People({ people, setPeople, eachAmount }) {
         const updatedPeopleList = people.map(person =>
             person.id === modalData?.id ? modalData : person
         );
+        console.log(modalData)
+        console.log(updatedPeopleList)
         setPeople(updatedPeopleList);
     }, [modalData, setPeople])
 
@@ -81,6 +82,7 @@ export default function People({ people, setPeople, eachAmount }) {
         <div id="box">
             <div className="circle" id="circle"></div>
             <PeopleModal
+                key={1}
                 people={people}
                 eachAmount={eachAmount}
                 modalData={modalData}
