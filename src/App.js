@@ -1,18 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-import './css/style.css'
-
-import peopleList from './data';
+import { useState, useEffect } from 'react';
 
 import Container from '@mui/material/Container';
 import { Typography } from '@mui/material';
 
 import People from './components/People';
 import ControlBox from './components/ControlBox/ControlBox';
-import { useState, useEffect } from 'react';
+import Instructions from './components/Instructions';
+
+import peopleList from './util/data';
+import useLocalStorage from './util/useLocalStorage'
+
+import './App.css';
+import './css/style.css'
+
+const styleSpan = {
+  fontSize: '22px',
+  fontWeight: 'bold',
+}
 
 function App() {
-  const [people, setPeople] = useState(peopleList);
+  const [people, setPeople] = useLocalStorage('people', peopleList);
   const [totalAmount, setTotalAmount] = useState(0);
   const [eachAmount, setEachAmount] = useState(0);
 
@@ -31,12 +38,17 @@ function App() {
 
         <div id='totalAmountDiv'>
           <Typography id="modal-modal-title" variant="h4" component="h2">
-            &#8377; {totalAmount}
+            <span style={{ 'color': '#000000', ...styleSpan }}>&#8377; {totalAmount}</span>
           </Typography>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            &#8377; {eachAmount} each
+            <span style={{ 'color': '#eb9800', ...styleSpan }}>&#8377; {eachAmount}</span> each
           </Typography>
         </div>
+
+        <br /><br /><br />
+        <Container maxWidth="sm">
+          <Instructions noOfPeople={people.length} />
+        </Container>
 
       </Container>
     </div>
