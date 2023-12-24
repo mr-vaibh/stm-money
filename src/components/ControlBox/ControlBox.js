@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 
 import ControlBoxModal from './ControlBoxModal';
+import ImportExport from './ImportExport';
 
 export default function ControlBox({ people, setPeople }) {
     const [open, setOpen] = useState(false);
@@ -12,7 +13,10 @@ export default function ControlBox({ people, setPeople }) {
 
     return (
         <div id="control-box">
-            <Button variant="contained" onClick={handleOpen}><PeopleAltIcon /> Manage</Button>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <Button variant="contained" onClick={handleOpen} style={{ marginBottom: '10px' }} startIcon={<PeopleAltIcon />}>Manage</Button>
+                <ImportExport people={people} setPeople={setPeople} />
+            </div>
 
             <ControlBoxModal
                 people={people}
