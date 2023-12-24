@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     let totalAmount = 0;
     people.forEach(each => totalAmount += each.paid);
-    setTotalAmount(totalAmount);
+    setTotalAmount(parseFloat(totalAmount).toFixed(2));
     setEachAmount((totalAmount / people.length).toFixed(2));
   }, [people])
 

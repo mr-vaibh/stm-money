@@ -79,8 +79,9 @@ export default function ControlBoxModalTable({ people, setPeople }) {
     };
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 50 },
-        { field: 'name', headerName: 'Name', width: 180, editable: true },
+        { field: 'id', headerName: 'ID', width: 30 },
+        { field: 'name', headerName: 'Name', width: 140, editable: true },
+        { field: 'paid', headerName: 'Paid', width: 90, editable: true },
         {
             field: 'actions',
             type: 'actions',
@@ -141,6 +142,10 @@ export default function ControlBoxModalTable({ people, setPeople }) {
             slots={{
                 toolbar: EditToolbar,
             }}
+            initialState={{
+                pagination: { paginationModel: { pageSize: 10 } },
+            }}
+            pageSizeOptions={[10, 20, 30]}
             slotProps={{
                 toolbar: { rows, setRows, setRowModesModel },
             }}
