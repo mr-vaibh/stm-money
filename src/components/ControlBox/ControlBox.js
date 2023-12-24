@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 import Button from '@mui/material/Button';
-
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+
 import ControlBoxModal from './ControlBoxModal';
 
 export default function ControlBox({ people, setPeople }) {
