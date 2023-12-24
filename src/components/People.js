@@ -8,7 +8,6 @@ export default function People({ people, setPeople, eachAmount }) {
     const handleOpen = useCallback((id) => {
         const item = people.filter(item => item.id === parseInt(id) + 1)[0];
 
-        console.log(item);
         setModalData(item);
         setOpen(true);
     }, [people, setModalData, setOpen]);

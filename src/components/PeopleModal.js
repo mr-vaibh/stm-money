@@ -33,9 +33,7 @@ export default function PeopleModal({ people, eachAmount, modalData, setModalDat
 
     const handlePay = () => {
         if (parseFloat(paidValue)) {
-            console.log(modalData)
             let newModalDataObject = { ...modalData };
-            console.log(newModalDataObject)
             newModalDataObject.paid += parseFloat(paidValue);
 
             setModalData(newModalDataObject);
