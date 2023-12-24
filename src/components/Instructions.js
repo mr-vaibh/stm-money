@@ -24,7 +24,7 @@ export default function Instructions({ noOfPeople }) {
                     <Typography style={{ display: 'flex', alignItems: 'center', fontStyle: 'italic' }}><LightbulbIcon style={{ color: '#eb9800' }} /> Instructions</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Typography>
+                    <Typography component={'ul'}>
                         <ul style={{ textAlign: 'left' }}>
                             <li>Any person will pay for all, or for none.</li>
                             <li>Paying for less than total number of people is not allowed.
