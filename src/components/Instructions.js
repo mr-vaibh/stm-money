@@ -21,7 +21,7 @@ export default function Instructions({ noOfPeople }) {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
-                    <Typography style={{ display: 'flex', alignItems: 'center', fontStyle: 'italic' }}><LightbulbIcon style={{ color: '#eb9800' }} /> Instruction</Typography>
+                    <Typography style={{ display: 'flex', alignItems: 'center', fontStyle: 'italic' }}><LightbulbIcon style={{ color: '#eb9800' }} /> Instructions</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography component={'ul'}>
