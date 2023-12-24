@@ -10,10 +10,8 @@ import LightbulbIcon from '@mui/icons-material/Lightbulb';
 
 export default function Instructions({ noOfPeople }) {
 
-    // Set the 'marginCss' based on the number of people:
-    // If 'noOfPeople' is greater than 3, set 'marginCss' to '100px' if it's an even number, otherwise set it to '70px';
-    // Otherwise, set 'marginCss' to '0px'.
-    let marginCss = noOfPeople > 3 ? (noOfPeople % 2 === 0 ? '100px' : '70px') : '0px';
+    // Set 'marginCss' to '80px' if it's an even number, otherwise set it to '70px';
+    let marginCss = noOfPeople % 2 === 0 ? '80px' : '70px';
 
     return (
         <div style={{ marginTop: marginCss }}>
