@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Button, FormControl, Grid } from '@mui/material';
 
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
+
 const styleBox = {
     position: 'absolute',
     top: '50%',
@@ -84,7 +86,7 @@ export default function PeopleModal({ people, eachAmount, modalData, setModalDat
                                 <TextField id="pay" label="Pay" variant="outlined" value={paidValue} onChange={handlePaidValue} autoFocus />
                             </Grid>
                             <Grid item>
-                                <Button variant="contained" onClick={handlePay}>Pay</Button>
+                                <Button variant="contained" onClick={handlePay} startIcon={<CurrencyRupeeIcon />}>Pay</Button>
                             </Grid>
                         </Grid>
                     </FormControl>
