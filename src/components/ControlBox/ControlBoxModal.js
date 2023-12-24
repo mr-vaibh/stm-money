@@ -21,15 +21,16 @@ export default function ControlBoxModal({ people, setPeople, open, handleClose }
     useEffect(() => {
         // Cleanup logic when the modal is closed without saving
         if (!open) {
-            const updatedRows = people.map((row) => {
-                // Check if the name is blank and set it to 'Person X'
-                if (row.name.trim() === '') {
-                    return { ...row, name: `Person ${row.id}` };
-                }
-                return row;
+            setPeople(prevPeople => {
+                const updatedRows = prevPeople.map((row) => {
+                    // Check if the name is blank and set it to 'Person X'
+                    if (row.name.trim() === '') {
+                        return { ...row, name: `Person ${row.id}` };
+                    }
+                    return row;
+                });
+                return updatedRows;
             });
-
-            setPeople(updatedRows);
         }
     }, [open, setPeople]);
 

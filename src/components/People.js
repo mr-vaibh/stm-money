@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import PeopleModal from './PeopleModal';
 
 export default function People({ people, setPeople, eachAmount }) {
     const [open, setOpen] = useState(false);
     const [modalData, setModalData] = useState(null);
 
-    const handleOpen = (id) => {
+    const handleOpen = useCallback((id) => {
         const item = people.filter(item => item.id === parseInt(id) + 1)[0];
 
         console.log(item);
         setModalData(item);
         setOpen(true);
-    };
+    }, [people, setModalData, setOpen]);
 
     const handleClose = () => setOpen(false);
 
-    function generateCircle(peopleNameList, numItems) {
+    const generateCircle = useCallback((peopleNameList, numItems) => {
         const circle = document.getElementById('circle');
         const containerSize = Math.min(circle.offsetWidth, circle.offsetHeight);
         const radius = window.screen.height / 4; // Adjust the factor as needed
@@ -61,22 +61,18 @@ export default function People({ people, setPeople, eachAmount }) {
 
             circle.appendChild(item);
         }
-    }
+    }, [handleOpen])
 
     useEffect(() => {
         const peopleNameList = people.map(item => item.name);
         generateCircle(peopleNameList, peopleNameList.length);
-    }, [people])
+    }, [people, generateCircle])
 
     useEffect(() => {
-        const updatedPeopleList = people.map(person =>
+        setPeople(prevPeople => prevPeople.map(person =>
             person.id === modalData?.id ? modalData : person
-        );
-        console.log(modalData)
-        console.log(updatedPeopleList)
-        setPeople(updatedPeopleList);
+        ))
     }, [modalData, setPeople])
-
 
     return (
         <div id="box">
